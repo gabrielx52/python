@@ -1,0 +1,30 @@
+from datetime import datetime
+import math
+
+now = datetime.now()
+m = 100
+prompt = ">"
+if now.weekday() == 3:
+    m = 100
+def budg():
+    global m
+    
+    
+    print "How much money have you spent?"
+    ms = raw_input(prompt)
+    f = math.ceil(float(ms))
+    m = m - f   
+   
+    if m > 0:
+        print "You have $%i left to spend on food for the week." % m
+        if m >= 0:
+            budg()
+            
+    elif m == 0:
+        print "You're broke!"
+    else:
+        print "You can't do that"
+        budg()
+
+print "You have $%i to spend on groceries." % m
+budg()    
